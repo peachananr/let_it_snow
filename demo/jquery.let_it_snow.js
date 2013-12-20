@@ -6,7 +6,7 @@
  * http://www.thepetedesign.com
  *
  * As the end of the year approaches, let's add 
- * some festivity to your website!
+ * some festive to your website!
  *
  * https://github.com/peachananr/let_it_snow
  *
@@ -21,8 +21,10 @@
     count: 200,
     opacity: 0,
     color: "#ffffff",
-    windPower: 0
+    windPower: 0,
+    image: false
 	};
+	
   
   $.fn.let_it_snow = function(options){
     var settings = $.extend({}, defaults, options),
@@ -36,6 +38,15 @@
     
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        
+    (function() {
+        var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
+        function(callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+        window.requestAnimationFrame = requestAnimationFrame;
+    })();
+    
     function snow() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -85,7 +96,7 @@
             var matches = patt.exec(s);
             var rgb = parseInt(matches[1], 16)+","+parseInt(matches[2], 16)+","+parseInt(matches[3], 16);
 
-            ctx.fillStyle = "rgba(" + rgb + "," + flake.opacity + ")"
+            
             flake.y += flake.velY;
             flake.x += flake.velX;
 
@@ -97,10 +108,16 @@
             if (flake.x >= canvas.width || flake.x <= 0) {
                 reset(flake);
             }
+            if (settings.image == false) {
+              ctx.fillStyle = "rgba(" + rgb + "," + flake.opacity + ")"
+              ctx.beginPath();
+              ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+              ctx.fill();
+            } else {
+              
+              ctx.drawImage($("img#lis_flake").get(0), flake.x, flake.y, flake.size * 2, flake.size * 2);
+            }
             
-            ctx.beginPath();
-            ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
-            ctx.fill();
         }
         requestAnimationFrame(snow);
     };
@@ -162,6 +179,10 @@
       }
       
       snow();
+    }
+    
+    if (settings.image != false) {
+      $("<img src='"+settings.image+"' style='display: none' id='lis_flake'>").prependTo("body")
     }
     
     init();
