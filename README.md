@@ -4,7 +4,7 @@ Created by [Pete R.](http://www.thepetedesign.com), Founder of [BucketListly](ht
 
 Note: This plugin is based on [Jason Brown](https://github.com/loktar00)'s solution [found here](http://stackoverflow.com/questions/13983764/creating-falling-snow-using-html-5-and-js)
 
-[![Let it Snow](http://www.thepetedesign.com/images/let_it_snow_image.png "Let it Snow")](http://www.thepetedesign.com/demos/let_it_snow_demo.html)
+[![Let it Snow](http://www.thepetedesign.com/images/let_it_snow_image_2.png "Let it Snow")](http://www.thepetedesign.com/demos/let_it_snow_demo.html)
 
 ## Demo
 [View demo](http://www.thepetedesign.com/demos/let_it_snow_demo.html)
