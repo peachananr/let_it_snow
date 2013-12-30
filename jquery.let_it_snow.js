@@ -23,9 +23,8 @@
     color: "#ffffff",
     windPower: 0,
     image: false
-	};
-	
-  
+    };
+
   $.fn.let_it_snow = function(options){
     var settings = $.extend({}, defaults, options),
         el = $(this),
@@ -38,6 +37,10 @@
     
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
+        el.on("letItSnow.set", function (event, prop, value) {
+            settings[prop] = value;
+        });
         
     (function() {
         var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
@@ -186,7 +189,7 @@
     }
     
     init();
-    
+
     $(window).resize(function() {
       if(this.resizeTO) clearTimeout(this.resizeTO);
       this.resizeTO = setTimeout(function() {
@@ -206,4 +209,3 @@
     }
   }
 }(window.jQuery);
-
