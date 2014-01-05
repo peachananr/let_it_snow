@@ -36,4 +36,4 @@ If you want to see more of my plugins, visit [The Pete Design](http://www.thepet
 
 ## Other Resources
 - [Jason Brown's Repo](https://github.com/loktar00)
-- Tutorial (Coming Soon)
+- [Tutorial](http://www.onextrapixel.com/2013/12/24/create-and-control-festive-snow-on-your-website-using-html5-canvas/)
