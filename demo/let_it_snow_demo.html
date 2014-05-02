@@ -225,6 +225,16 @@
     canvas.flare {
       opacity: 0.5;
     }
+
+    .snowWindPower {
+        padding: 10px;
+        width: 90px;
+        border: none;
+        border-radius: 3px;
+        font-size: 33px;
+        background: rgba(0, 0, 0, 0.31);
+        color: white;
+    }
 	</style>
 	<script>
 	  $(document).ready( function() {
@@ -243,6 +253,9 @@
     	      count: 250,
     	      size: 0
     	    });
+            $(".snowWindPower").on("change", function () {
+                $("canvas.snow").trigger("letItSnow", ["windPower", parseInt($(this).val())]);
+            });
 	  });
 		
 	</script>
@@ -256,6 +269,8 @@
         <h1>jQuery Let It Snow</h1>
         <h2>Create and Control a Festive Snow on Your Website using HTML5 Canvas</h2>
         <p class="credit">Created by <a href="http://www.thepetedesign.com">Pete R.</a>, Founder of <a href="http://www.bucketlistly.com" target="_blank">BucketListly</a></p>
+        <p class="credit">You can change the wind power setting the value of the following input (implemented by <a href="https://github.com/IonicaBizau" target="_blank">Ionică Bizău</a>):</p>
+        <input type="number" value="3" class="snowWindPower"> 
         <div class="btns">
   	      <a class="reload btn" href="https://github.com/peachananr/let_it_snow">Download on Github</a>
   	    </div>
